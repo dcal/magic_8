@@ -14,7 +14,10 @@ const YesNoReplies = [
   "You betcha, amigo!",
   "No chance, silly pants.",
   "In your dreams.",
-  "Of course! I'm surprised you even asked."
+  "Of course! I'm surprised you even asked.",
+  "Yes, definitely.",
+  "Ummmmmmmm, yes?",
+  "Indubidably"
 ]
 
 const TimeReplies = [
@@ -31,9 +34,13 @@ const TimeReplies = [
   "Soon. Very, very soon."
 ]
 
-const UnhandledReply = "Sorry, I can't help you with that. Try asking a yes no or time-related question.";
+const UnhandledReply = "Sounds like a question for your therapist.";
 
-const WelcomeReply = "Welcome to Magic Eight Ball. Ask me any question about your future, such as, will I be rich?";
+const WelcomeReply = "Welcome to Magic Eight Ball. Ask me a question about your future, such as, will I be rich?";
+
+const GoodbyeReply = "Whatevs. Later.";
+
+const AmbiguousReply = "I didn't catch that. Sorry.";
 
 let getRandomInt = (max) => {
  return Math.floor(Math.random() * Math.floor(max));
@@ -44,8 +51,10 @@ let randomReplyFrom = (list) => {
 }
 
 module.exports = {
-  welcome: () => WelcomeReply,
   yesNo: () => randomReplyFrom(YesNoReplies),
   time: () => randomReplyFrom(TimeReplies),
-  unhandled: () => UnhandledReply
+  welcome: () => WelcomeReply,
+  unhandled: () => UnhandledReply,
+  goodbye: () => GoodbyeReply,
+  ambiguous: () => AmbiguousReply
 }
